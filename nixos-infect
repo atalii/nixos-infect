@@ -373,6 +373,7 @@ infect() {
   rm -rf /boot.bak
   isEFI && umount "$esp"
 
+  umount /boot/efi
   mv -v /boot /boot.bak || { cp -a /boot /boot.bak ; rm -rf /boot/* ; umount /boot ; }
   if isEFI; then
     mkdir -p /boot
